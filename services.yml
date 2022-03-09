@@ -1,0 +1,16 @@
+apps:
+  - script        : index.js
+    cwd           : ./dist/src
+    name          : fetcher
+    autorestart   : false
+    node_args     : --experimental-specifier-resolution=node
+    cron_restart  : 30 * * * * # every hour
+    env:
+      BLIZZARD_ID: ''
+      BLIZZARD_SECRET: ''
+      PGHOST: localhost
+      PGDATABASE: auction_house
+      PGPORT: 5432
+      PGUSER: postgres
+      PGPASSWORD: example_password
+
