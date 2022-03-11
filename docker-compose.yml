@@ -10,3 +10,4 @@ services:
     environment:
       POSTGRES_PASSWORD: example_password
       POSTGRES_DB: auction_house
+    command: postgres -i -h *

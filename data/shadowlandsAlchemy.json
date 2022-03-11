@@ -1,0 +1,427 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://us.api.blizzard.com/data/wow/profession/171/skill-tier/2750?namespace=static-9.2.0_42277-us"
+    }
+  },
+  "id": 2750,
+  "name": "Shadowlands Alchemy",
+  "minimum_skill_level": 1,
+  "maximum_skill_level": 175,
+  "categories": [
+    {
+      "name": "Oils and Extracts",
+      "recipes": [
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42298?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Shadowcore Oil",
+          "id": 42298
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42299?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Embalmer's Oil",
+          "id": 42299
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42300?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Ground Death Blossom",
+          "id": 42300
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42301?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Ground Vigil's Torch",
+          "id": 42301
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42302?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Ground Widowbloom",
+          "id": 42302
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42303?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Ground Marrowroot",
+          "id": 42303
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42304?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Ground Rising Glory",
+          "id": 42304
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42305?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Ground Nightshade",
+          "id": 42305
+        }
+      ]
+    },
+    {
+      "name": "Anti-Venoms",
+      "recipes": [
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42314?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Spiritual Anti-Venom",
+          "id": 42314
+        }
+      ]
+    },
+    {
+      "name": "Cauldrons",
+      "recipes": [
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42315?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Eternal Cauldron",
+          "id": 42315
+        }
+      ]
+    },
+    {
+      "name": "Flasks",
+      "recipes": [
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42319?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Spectral Flask of Power",
+          "id": 42319
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42321?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Spectral Flask of Stamina",
+          "id": 42321
+        }
+      ]
+    },
+    {
+      "name": "Combat Potions",
+      "recipes": [
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42323?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Spiritual Healing Potion",
+          "id": 42323
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42326?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Spiritual Mana Potion",
+          "id": 42326
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42327?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Spectral Agility",
+          "id": 42327
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42328?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Hardened Shadows",
+          "id": 42328
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42329?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Spiritual Clarity",
+          "id": 42329
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42330?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Spectral Intellect",
+          "id": 42330
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42331?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Spectral Stamina",
+          "id": 42331
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42332?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Spectral Strength",
+          "id": 42332
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42333?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Spiritual Rejuvenation Potion",
+          "id": 42333
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42355?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Empowered Exorcisms",
+          "id": 42355
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42356?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Phantom Fire",
+          "id": 42356
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42357?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Divine Awakening",
+          "id": 42357
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42358?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Deathly Fixation",
+          "id": 42358
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/43546?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Sacrificial Anima",
+          "id": 43546
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46288?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Cosmic Healing Potion",
+          "id": 46288
+        }
+      ]
+    },
+    {
+      "name": "Utility Potions",
+      "recipes": [
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42324?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Soul Purity",
+          "id": 42324
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42325?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of the Hidden Spirit",
+          "id": 42325
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42334?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Shaded Sight",
+          "id": 42334
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42335?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Specter Swiftness",
+          "id": 42335
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/45719?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of Unhindered Passing",
+          "id": 45719
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/45802?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Potion of the Psychopomp's Speed",
+          "id": 45802
+        }
+      ]
+    },
+    {
+      "name": "Transmutation",
+      "recipes": [
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42336?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Shadowghast Ingot",
+          "id": 42336
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42337?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Shadestone",
+          "id": 42337
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46185?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Stones to Ore",
+          "id": 46185
+        }
+      ]
+    },
+    {
+      "name": "Trinkets",
+      "recipes": [
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42344?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Spiritual Alchemy Stone",
+          "id": 42344
+        }
+      ]
+    },
+    {
+      "name": "Other",
+      "recipes": [
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/45347?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Red Noggin Candle",
+          "id": 45347
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46180?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Blossom Burst",
+          "id": 46180
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46181?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Marrow Burst",
+          "id": 46181
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46182?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Glory Burst",
+          "id": 46182
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46183?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Torch Burst",
+          "id": 46183
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46184?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Widow Burst",
+          "id": 46184
+        }
+      ]
+    },
+    {
+      "name": "Optional Reagents",
+      "recipes": [
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/45771?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Novice Crafter's Mark",
+          "id": 45771
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/45772?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Crafter's Mark I",
+          "id": 45772
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/45773?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Crafter's Mark II",
+          "id": 45773
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46085?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Crafter's Mark III",
+          "id": 46085
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46086?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Crafter's Mark of the Chained Isle",
+          "id": 46086
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46272?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Crafter's Mark IV",
+          "id": 46272
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46273?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Crafter's Mark of the First Ones",
+          "id": 46273
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46293?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Infusion: Corpse Purification",
+          "id": 46293
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46300?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Sustaining Armor Polish",
+          "id": 46300
+        }
+      ]
+    }
+  ]
+}

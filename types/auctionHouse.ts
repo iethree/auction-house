@@ -43,3 +43,21 @@ export interface ItemNameMap {
 	itemId: number;
 	name: string;
 }
+
+export interface Ingredient {
+  itemId: number;
+  qty: number;
+}
+
+export interface Recipe {
+  recipeId: number;
+	recipeName: string;
+	recipeCategory: string;
+	professionId: number;
+	professionName: string;
+	professionTierName: string;
+	professionTierId: number;
+	craftedItemId: number;
+	crafted_item_qty: number;
+	reagents: Ingredient[];
+}

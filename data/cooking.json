@@ -1,0 +1,85 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://us.api.blizzard.com/data/wow/profession/185?namespace=static-9.2.0_42277-us"
+    }
+  },
+  "id": 185,
+  "name": "Cooking",
+  "description": "Higher cooking skill allows you to learn higher level cooking recipes.  Recipes can be found on trainers around the world as well as from quests and as drops from monsters.",
+  "type": {
+    "type": "SECONDARY",
+    "name": "Secondary"
+  },
+  "media": {
+    "key": {
+      "href": "https://us.api.blizzard.com/data/wow/media/profession/185?namespace=static-9.2.0_42277-us"
+    },
+    "id": 185
+  },
+  "skill_tiers": [
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/185/skill-tier/2541?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Kul Tiran Cooking / Zandalari Cooking",
+      "id": 2541
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/185/skill-tier/2542?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Legion Cooking",
+      "id": 2542
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/185/skill-tier/2543?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Draenor Cooking",
+      "id": 2543
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/185/skill-tier/2544?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Pandaria Cooking",
+      "id": 2544
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/185/skill-tier/2545?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Cataclysm Cooking",
+      "id": 2545
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/185/skill-tier/2546?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Northrend Cooking",
+      "id": 2546
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/185/skill-tier/2547?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Outland Cooking",
+      "id": 2547
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/185/skill-tier/2548?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Cooking",
+      "id": 2548
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/185/skill-tier/2752?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Shadowlands Cooking",
+      "id": 2752
+    }
+  ]
+}

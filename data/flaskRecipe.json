@@ -1,0 +1,87 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://us.api.blizzard.com/data/wow/recipe/42319?namespace=static-9.2.0_42277-us"
+    }
+  },
+  "id": 42319,
+  "name": "Spectral Flask of Power",
+  "media": {
+    "key": {
+      "href": "https://us.api.blizzard.com/data/wow/media/recipe/42319?namespace=static-9.2.0_42277-us"
+    },
+    "id": 42319
+  },
+  "crafted_item": {
+    "key": {
+      "href": "https://us.api.blizzard.com/data/wow/item/171276?namespace=static-9.2.0_42277-us"
+    },
+    "name": "Spectral Flask of Power",
+    "id": 171276
+  },
+  "reagents": [
+    {
+      "reagent": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item/180732?namespace=static-9.2.0_42277-us"
+        },
+        "name": "Rune Etched Vial",
+        "id": 180732
+      },
+      "quantity": 1
+    },
+    {
+      "reagent": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item/171315?namespace=static-9.2.0_42277-us"
+        },
+        "name": "Nightshade",
+        "id": 171315
+      },
+      "quantity": 3
+    },
+    {
+      "reagent": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item/168586?namespace=static-9.2.0_42277-us"
+        },
+        "name": "Rising Glory",
+        "id": 168586
+      },
+      "quantity": 4
+    },
+    {
+      "reagent": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item/168589?namespace=static-9.2.0_42277-us"
+        },
+        "name": "Marrowroot",
+        "id": 168589
+      },
+      "quantity": 4
+    },
+    {
+      "reagent": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item/168583?namespace=static-9.2.0_42277-us"
+        },
+        "name": "Widowbloom",
+        "id": 168583
+      },
+      "quantity": 4
+    },
+    {
+      "reagent": {
+        "key": {
+          "href": "https://us.api.blizzard.com/data/wow/item/170554?namespace=static-9.2.0_42277-us"
+        },
+        "name": "Vigil's Torch",
+        "id": 170554
+      },
+      "quantity": 4
+    }
+  ],
+  "crafted_quantity": {
+    "value": 1
+  }
+}

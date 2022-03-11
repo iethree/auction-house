@@ -1,6 +1,7 @@
 import type { AuctionItem } from '@/types/auctionHouse';
 import pg from 'pg';
 import { getNames } from './fetchData';
+import { getProfessionTier, getRecipe } from './fetchData';
 
 export async function saveAuctionData(auctionData: AuctionItem[]): Promise<number | null> {
   const { Client } = pg;
@@ -41,5 +42,13 @@ export async function loadItemNames(limit = 10): Promise<number | null> {
   await client.end();
 
   return (insertResult && insertResult.rowCount) || null;
+}
+
+export async function loadRecipes(professionId:number, professoinTierId: number): Promise<number | null> {
+
+  const professionTier = await getProfessionTier(professionId, professoinTierId);
+  const recipesIds = professionTier.categories.map((recipe) => recipe.recipe_id);
+
+  return 0;
 }
 

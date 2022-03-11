@@ -1,0 +1,180 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://us.api.blizzard.com/data/wow/profession/185/skill-tier/2752?namespace=static-9.2.0_42277-us"
+    }
+  },
+  "id": 2752,
+  "name": "Shadowlands Cooking",
+  "minimum_skill_level": 1,
+  "maximum_skill_level": 75,
+  "categories": [
+    {
+      "name": "Light Meals",
+      "recipes": [
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42446?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Butterscotch Marinated Ribs",
+          "id": 42446
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42450?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Cinnamon Bonefish Stew",
+          "id": 42450
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42452?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Biscuits and Caviar",
+          "id": 42452
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42454?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Meaty Apple Dumplings",
+          "id": 42454
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42456?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Pickled Meat Smoothie",
+          "id": 42456
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42466?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Sweet Silvergill Sausages",
+          "id": 42466
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46166?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Twilight Tea",
+          "id": 46166
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46167?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Bonemeal Bread",
+          "id": 46167
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46168?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Porous Rock Candy",
+          "id": 46168
+        }
+      ]
+    },
+    {
+      "name": "Large Meals",
+      "recipes": [
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42447?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Spinefin Souffle and Fries",
+          "id": 42447
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42451?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Tenebrous Crown Roast Aspic",
+          "id": 42451
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42453?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Candied Amberjack Cakes",
+          "id": 42453
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42455?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Iridescent Ravioli with Apple Sauce",
+          "id": 42455
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42457?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Banana Beef Pudding",
+          "id": 42457
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42467?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Steak a la Mode",
+          "id": 42467
+        }
+      ]
+    },
+    {
+      "name": "Feasts",
+      "recipes": [
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42448?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Surprisingly Palatable Feast",
+          "id": 42448
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42449?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Feast of Gluttonous Hedonism",
+          "id": 42449
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/46253?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Empty Kettle of Stone Soup",
+          "id": 46253
+        }
+      ]
+    },
+    {
+      "name": "Soul Food",
+      "recipes": [
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42459?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Seraph Tenders",
+          "id": 42459
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42460?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Smothered Shank",
+          "id": 42460
+        },
+        {
+          "key": {
+            "href": "https://us.api.blizzard.com/data/wow/recipe/42461?namespace=static-9.2.0_42277-us"
+          },
+          "name": "Fried Bonefish",
+          "id": 42461
+        }
+      ]
+    }
+  ]
+}

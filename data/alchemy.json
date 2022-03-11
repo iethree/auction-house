@@ -1,0 +1,85 @@
+{
+  "_links": {
+    "self": {
+      "href": "https://us.api.blizzard.com/data/wow/profession/171?namespace=static-9.2.0_42277-us"
+    }
+  },
+  "id": 171,
+  "name": "Alchemy",
+  "description": "Higher alchemy skill allows you to learn higher level alchemy recipes.  Alchemy recipes can be found on trainers around the world as well as from quests and monsters.",
+  "type": {
+    "type": "PRIMARY",
+    "name": "Primary"
+  },
+  "media": {
+    "key": {
+      "href": "https://us.api.blizzard.com/data/wow/media/profession/171?namespace=static-9.2.0_42277-us"
+    },
+    "id": 171
+  },
+  "skill_tiers": [
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/171/skill-tier/2478?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Kul Tiran Alchemy / Zandalari Alchemy",
+      "id": 2478
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/171/skill-tier/2479?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Legion Alchemy",
+      "id": 2479
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/171/skill-tier/2480?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Draenor Alchemy",
+      "id": 2480
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/171/skill-tier/2481?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Pandaria Alchemy",
+      "id": 2481
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/171/skill-tier/2482?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Cataclysm Alchemy",
+      "id": 2482
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/171/skill-tier/2483?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Northrend Alchemy",
+      "id": 2483
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/171/skill-tier/2484?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Outland Alchemy",
+      "id": 2484
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/171/skill-tier/2485?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Alchemy",
+      "id": 2485
+    },
+    {
+      "key": {
+        "href": "https://us.api.blizzard.com/data/wow/profession/171/skill-tier/2750?namespace=static-9.2.0_42277-us"
+      },
+      "name": "Shadowlands Alchemy",
+      "id": 2750
+    }
+  ]
+}
