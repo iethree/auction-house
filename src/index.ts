@@ -1,8 +1,9 @@
 import 'dotenv/config';
 import { getAuctionData } from './fetchData';
+import { loadCraftPrices } from './craftPrice';
 import consolidatePrices from './consolidateAuctions';
 import { saveAuctionData } from './saveData';
-import loadAllNames from './loadNames';
+import loadAllItems from './loadItems';
 
 // fetch
 const skywallId = 86;
@@ -24,7 +25,11 @@ const insertedPrices = await saveAuctionData(parsedPrices).catch(console.error);
 
 console.log(`✅ ${insertedPrices} prices saved`);
 
-await loadAllNames();
+await loadAllItems();
+
+console.log('⌛ calculating craft prices');
+const loaded = await loadCraftPrices().catch(console.error);
+console.log(`✅ saved ${loaded} craft prices`);
 
 console.log(`✅ done`);
 

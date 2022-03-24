@@ -1,4 +1,6 @@
-import { ApiAuctionHouse, ApiAuctionItem, ItemNameMap } from '@/types/auctionHouse';
+import type {
+  ApiAuctionHouse, ApiAuctionItem, Item, Recipe, Ingredient
+} from '@/types/auctionHouse';
 import fetch from './fetchWithTimeout';
 
 let authTokenCache = {
@@ -36,7 +38,10 @@ async function getAuthToken(id: string, secret: string){
 }
 
 async function getApiData(apiPath: string): Promise<any> {
-  const token = await getAuthToken(process.env.BLIZZARD_ID as string, process.env.BLIZZARD_SECRET as string);
+  const token = await getAuthToken(
+    process.env.BLIZZARD_ID as string,
+    process.env.BLIZZARD_SECRET as string
+  );
 
   const querySeparator = apiPath.includes('?') ? '&' : '?';
 
@@ -48,13 +53,12 @@ async function getApiData(apiPath: string): Promise<any> {
         const apiResponse = await response.json() as any;
         return apiResponse;
       } else {
-        console.error(apiPath, response.statusText);
-        return null;
+        console.error(response.statusText, apiPath);
+        return Promise.reject(response);
       }
     })
     .catch((err) => {
-      console.error(apiPath, err.message);
-      return null;
+      return Promise.reject(err);
     });
 }
 
@@ -62,10 +66,9 @@ async function getApiData(apiPath: string): Promise<any> {
 export async function getAuctionData(realmId: number): Promise<ApiAuctionItem[] |  null> {
   const priceEndpoint = `connected-realm/${realmId}/auctions?namespace=dynamic-us`;
 
-  const response = await getApiData(priceEndpoint);
+  const apiResponse = await getApiData(priceEndpoint);
 
-  if (response.ok){
-    const apiResponse = await response.json() as ApiAuctionHouse;
+  if (apiResponse){
     return apiResponse.auctions;
   }
 
@@ -87,44 +90,46 @@ export async function getName(itemId: number): Promise<string | null> {
   return null;
 }
 
-export async function getNames(itemIds: number[]): Promise<ItemNameMap[]> {
-  const token = await getAuthToken(process.env.BLIZZARD_ID as string, process.env.BLIZZARD_SECRET as string);
+export async function getItems(itemIds: number[]): Promise<Item[]> {
+  const items: Array<Item | null> = await Promise.all(itemIds.map(async (itemId) => {
+    const endpoint = `item/${itemId}?namespace=static-us`;
 
-  const itemsWithNames: Array<ItemNameMap | null> = await Promise.all(itemIds.map(async (itemId) => {
-    const nameEndpoint = `https://us.api.blizzard.com/data/wow/item/${itemId}?namespace=static-us&region=us&local=en_US&access_token=${token}`;
-
-    return getApiData(nameEndpoint)
+    return getApiData(endpoint)
       .then(async(response) => {
         if (response){
-          const name = response?.name?.en_US || null;
-          return { itemId, name };
-        } else {
-          console.error(itemId, response.statusText);
-
-          if (response.status === 404) {
-            return { itemId, name: 'Unknown' };
-          }
-          return null;
+          return {
+            itemId,
+            name: response.name,
+            itemClass: response.item_class.name,
+            itemSubClass: response.item_subclass.name,
+            description: response?.description || response?.spells?.[0]?.description || '',
+            craftingReagent: !!response?.preview_item?.crafting_reagent,
+            vendorItem: null, // not sure how to figure this out programatically
+            purchasePrice: response?.purchase_price / 10000,
+            sellPrice: response?.sell_price / 10000,
+          };
         }
+        return null;
       })
-      .catch((err) => {
-        console.error(itemId, err.message);
+      .catch((r) => {
+        if (r?.status && r.status === 404) {
+          return {
+            itemId,
+            name: 'Unknown',
+            itemClass: 'Unknown',
+            itemSubClass: 'Unknown',
+            description: 'Unknown',
+            craftingReagent: null,
+            vendorItem: null,
+            purchasePrice: null,
+            sellPrice: null,
+          };
+        }
         return null;
       })
   }));
 
-  return itemsWithNames
-    .filter(Boolean) as ItemNameMap[];
-}
-
-export async function getItemData(itemIds: number[]): Promise<any[]> {
-  const itemData: Array<ItemNameMap | null> = await Promise.all(itemIds.map(async (itemId) => {
-    const itemEndpoint = `item/${itemId}?namespace=static-us`;
-    return getApiData(itemEndpoint);
-  }));
-
-  return itemData
-    .filter(Boolean) as any[];
+  return items.filter(Boolean) as Item[];
 }
 
 export async function getProfession(id: number | 'index'): Promise<any> {
@@ -141,3 +146,41 @@ export async function getRecipe(id: number ): Promise<any> {
   const professionEndpoint = `recipe/${id}?namespace=static-us`;
   return getApiData(professionEndpoint);
 }
+
+export async function getRecipes(professionId: number, tierName: string): Promise<Recipe[] | null> {
+  const profession = await getProfession(professionId);
+
+  const tierInfo = profession.skill_tiers.find(
+    (skillTier: any) => skillTier.name.toLowerCase().includes(tierName.toLowerCase())
+  );
+  if (!tierInfo || !profession) return null;
+
+  const tierData = await getProfessionTier(professionId, tierInfo.id);
+
+  const recipes: Recipe[] | void = await Promise.all(
+    tierData.categories.map((category: any) => (
+      category.recipes.map(async (thisRecipe: any) => {
+        const recipeData = await getRecipe(thisRecipe.id);
+
+        return {
+          recipeId: thisRecipe.id,
+          recipeName: thisRecipe.name,
+          recipeCategory: category.name,
+          professionId: professionId,
+          professionName: profession.name,
+          professionTierName: tierInfo.name,
+          professionTierId: tierInfo.id,
+          craftedItemId: recipeData.crafted_item.id,
+          craftedItemQty: recipeData.crafted_quantity.value,
+          reagents: mapReagents(recipeData.reagents),
+        };
+      })
+    )).flat()
+  ).catch (console.error);
+  return recipes || null;
+}
+
+const mapReagents = (reagents: any[]): Ingredient[] => reagents.map((r) => ({
+  itemId: r.reagent.id,
+  qty: r.quantity,
+}));

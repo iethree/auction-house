@@ -39,14 +39,22 @@ export interface AuctionItem {
   auctions: AuctionDetail[];
 }
 
-export interface ItemNameMap {
+export interface Item {
 	itemId: number;
 	name: string;
+  itemClass: string;
+  itemSubClass: string;
+  description: string;
+  craftingReagent: boolean | null;
+  vendorItem: boolean | null;
+  purchasePrice: number | null;
+  sellPrice: number | null;
 }
 
 export interface Ingredient {
   itemId: number;
-  qty: number;
+  qty?: number;
+  price?: number;
 }
 
 export interface Recipe {
@@ -58,6 +66,6 @@ export interface Recipe {
 	professionTierName: string;
 	professionTierId: number;
 	craftedItemId: number;
-	crafted_item_qty: number;
+	craftedItemQty: number;
 	reagents: Ingredient[];
 }

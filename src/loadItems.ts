@@ -1,4 +1,4 @@
-import { loadItemNames } from './saveData';
+import { loadItems } from './saveData';
 
 async function wait(sec: number) {
   return new Promise((resolve) => setTimeout(resolve, sec * 1000));
@@ -8,9 +8,9 @@ export default async function loadAllNames() {
   let loadedNames: number | null | void = 1;
 
   while (loadedNames) {
-    console.log(`⌛ fetching names`);
+    console.log(`⌛ fetching items`);
 
-    loadedNames = await loadItemNames(90).catch( async(err) => {
+    loadedNames = await loadItems(90).catch(async(err) => {
       if (err.message === 'request timed out') {
         console.log('❌ timeout, retrying');
         return 1;

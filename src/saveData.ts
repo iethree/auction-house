@@ -1,6 +1,6 @@
-import type { AuctionItem } from '@/types/auctionHouse';
+import type { AuctionItem, Recipe, Item } from '@/types/auctionHouse';
 import pg from 'pg';
-import { getNames } from './fetchData';
+import { getItems } from './fetchData';
 import { getProfessionTier, getRecipe } from './fetchData';
 
 export async function saveAuctionData(auctionData: AuctionItem[]): Promise<number | null> {
@@ -20,23 +20,47 @@ export async function saveAuctionData(auctionData: AuctionItem[]): Promise<numbe
 }
 
 // API throttles at 100 requests per second or 36,000 requests per hour
-export async function loadItemNames(limit = 10): Promise<number | null> {
+export async function loadItems(limit = 10): Promise<number | null> {
+
+  // TODO: refactor to separate getting and saving
+
   const { Client } = pg;
   const client = new Client();
   await client.connect();
 
-  const noNameQuery = /*sql*/`SELECT DISTINCT prices.item_id, item_names.name
+  const noNameQuery = /*sql*/`SELECT DISTINCT prices.item_id, items.name
     FROM prices
-    LEFT JOIN item_names ON item_names.item_id = prices.item_id
-    WHERE item_names.name IS NULL
+    LEFT JOIN items ON items.item_id = prices.item_id
+    WHERE items.name IS NULL
     LIMIT ${limit};`;
 
   const { rows: itemsMissingNames } = await client.query(noNameQuery);
   const itemIds = itemsMissingNames.map((item) => item.item_id);
-  const itemsWithNames = await getNames(itemIds);
+  const itemsWithNames = await getItems(itemIds);
 
-  const params = itemsWithNames.map((item) => `(${item.itemId}, '${item.name.replace(/'/g, "''")}')`).join(',');
-  const nameInsertQuery = /*sql*/`INSERT INTO item_names (item_id, name) VALUES ${params}`;
+  const params = itemsWithNames.map((item) => `(
+    ${item.itemId},
+    '${item.name.replace(/'/g, "''")}',
+    '${item.itemClass.replace(/'/g, "''")}',
+    '${item.itemSubClass.replace(/'/g, "''")}',
+    '${item.description.replace(/'/g, "''")}',
+    ${item.craftingReagent},
+    ${item.vendorItem},
+    ${item.purchasePrice},
+    ${item.sellPrice}
+  )`).join(',');
+
+  const nameInsertQuery = /*sql*/`INSERT INTO items (
+    item_id,
+    name,
+    item_class,
+    item_subclass,
+    item_description,
+    crafting_reagent,
+    vendor_item,
+    purchase_price,
+    sell_price
+  ) VALUES ${params}`;
 
   const insertResult = await client.query(nameInsertQuery);
   await client.end();
@@ -44,11 +68,40 @@ export async function loadItemNames(limit = 10): Promise<number | null> {
   return (insertResult && insertResult.rowCount) || null;
 }
 
-export async function loadRecipes(professionId:number, professoinTierId: number): Promise<number | null> {
+export async function saveRecipes(recipes: Recipe[]): Promise<number | null> {
+  const { Client } = pg;
+  const client = new Client();
+  await client.connect();
 
-  const professionTier = await getProfessionTier(professionId, professoinTierId);
-  const recipesIds = professionTier.categories.map((recipe) => recipe.recipe_id);
+  const params = recipes.map((r) => (
+    `(
+      ${r.recipeId},
+      '${r.recipeName.replace(/'/g, "''")}',
+      '${r.recipeCategory}',
+      ${r.professionId},
+      '${r.professionName.replace(/'/g, "''")}',
+      '${r.professionTierName.replace(/'/g, "''")}',
+      ${r.professionTierId},
+      ${r.craftedItemId},
+      ${r.craftedItemQty},
+      '${JSON.stringify(r.reagents)}'
+    )`
+  )).join(',');
 
-  return 0;
+  const query = /*sql*/`INSERT INTO recipes (
+    recipe_id,
+    recipe_name,
+    recipe_category,
+    profession_id,
+    profession_name,
+    profession_tier_name,
+    profession_tier_id,
+    crafted_item_id,
+    crafted_item_qty,
+    reagents
+  ) VALUES ${params};`;
+  const res = await client.query(query).catch(console.error);
+
+  await client.end();
+  return (res && res.rowCount) || null;
 }
-
