@@ -1,5 +1,5 @@
 import 'dotenv/config';
-import { getItemData, getProfession, getProfessionTier, getRecipe} from './fetchData';
+import { getRecipe} from './fetchData';
 import fs from 'fs';
 
 console.log('⌛ fetching item data');
