@@ -10,4 +10,8 @@ services:
     environment:
       POSTGRES_PASSWORD: example_password
       POSTGRES_DB: auction_house
+    volumes:
+      - ah_data:/var/lib/postgresql/data
     command: postgres -i -h *
+volumes:
+  ah_data:
