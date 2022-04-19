@@ -8,7 +8,7 @@ import loadAllItems from './loadItems';
 // fetch
 const skywallId = 86;
 
-console.log('⌛ fetching auctions');
+console.log('⌛ fetching auctions', new Date());
 
 const auctionData = await getAuctionData(skywallId).catch(console.error);
 

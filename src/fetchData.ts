@@ -132,6 +132,11 @@ export async function getItems(itemIds: number[]): Promise<Item[]> {
   return items.filter(Boolean) as Item[];
 }
 
+export async function getProfessionIndex(): Promise<any> {
+  const professionIndexEndpoint = `profession/index?namespace=static-us`;
+  return getApiData(professionIndexEndpoint);
+}
+
 export async function getProfession(id: number | 'index'): Promise<any> {
   const professionEndpoint = `profession/${id}?namespace=static-us`;
   return getApiData(professionEndpoint);

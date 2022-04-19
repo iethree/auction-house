@@ -4,13 +4,36 @@ import { saveRecipes } from './saveData';
 
 console.log('⌛ fetching recipes');
 
-// 171 : alchemy
 // 2750 : shadowlands alchemy
-
-// 185 : cooking
 // 2752 : shadowlands cooking
 
-const recipes = await getRecipes(185, 'Shadowlands').catch(console.error);
+const professionIds = {
+  'Blacksmithing': 164,
+  'Leatherworking': 165,
+  'Alchemy': 171,
+  'Herbalism': 182,
+  'Cooking': 185,
+  'Mining': 186,
+  'Tailoring': 197,
+  'Engineering': 202,
+  'Enchanting': 333,
+  'Fishing': 356,
+  'Skinning': 393,
+  'Jewelcrafting': 755,
+  'Inscription': 773,
+  'Archaeology': 794,
+  'Soul Cyphering': 2777,
+  'Abominable Stitching': 2787,
+  'Ascension Crafting': 2791,
+  'Stygia Crafting': 2811,
+  'Protoform Synthesis': 2819,
+};
+
+
+const recipes = await getRecipes(
+  professionIds['Enchanting'],
+  'Shadowlands',
+).catch(console.error);
 
 if (!recipes) {
   console.error('Could not fetch recipes');
