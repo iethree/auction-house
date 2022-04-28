@@ -19,15 +19,18 @@ export async function loadCraftPrices() : Promise<number | null> {
     FROM prices
     INNER JOIN recipes on recipes.crafted_item_id = prices.item_id
     WHERE
-      prices.item_id is not null
+      recipes.recipe_category NOT IN ('Mass Milling', 'Mass Prospecting') -- this is circular
+      and prices.item_id is not null
       and prices.craft_price is null
       and prices.ts = (SELECT MAX(ts) FROM prices);
   `);
 
   const itemCraftPrices: PriceMap[] = [];
 
+
   // we can't map this because it will open too many DB connections at once
   for (const i of itemsNeedingPrices) {
+    // console.log('getting craft price for', i.recipe_name);
     const craftPrice = await getCraftPrice(i.item_id);
 
     if (!craftPrice) continue;
@@ -60,7 +63,7 @@ export async function loadCraftPrices() : Promise<number | null> {
 }
 
 export async function getCraftPrice(itemId: number): Promise<number> {
-  const recipe = await getRecipe(itemId);
+  const recipe = await getRecipe(itemId).catch(console.error);
 
   if (!recipe) {
     throw new Error(`Recipe not found for itemId: ${itemId}`);
@@ -130,7 +133,10 @@ export async function getItemInfo(itemId: number) {
     /*SQL*/ `SELECT
       prices.low_price AS auction_price,
       items.purchase_price AS vendor_price,
-      recipes.crafted_item_id IS NOT NULL AS is_craftable
+      (
+        recipes.crafted_item_id IS NOT NULL
+        AND recipes.recipe_category NOT IN ('Mass Milling', 'Mass Prospecting') -- this is circular
+      ) AS is_craftable
     FROM prices
       LEFT JOIN items ON items.item_id = prices.item_id AND items.vendor_item = true
       LEFT JOIN recipes ON recipes.crafted_item_id = prices.item_id
@@ -147,6 +153,10 @@ export async function getItemInfo(itemId: number) {
 export async function getIngredient(itemId: number, qty = 1): Promise<Ingredient> {
 
   const itemInfo = await getItemInfo(itemId);
+
+  if (!itemInfo) {
+    console.error('missing item info for ingredient: ', itemId);
+  }
 
   // if it's craftable, check if we can craft it cheaper than buying it
   if (itemInfo.is_craftable) {

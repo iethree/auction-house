@@ -50,5 +50,9 @@ update items set vendor_item = true where item_id in (
 	180732,
 	183950,
 	159,
-	187812
+	187812,
+	173060,
+	175886,
+	183953,
+	177061
 );
