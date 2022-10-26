@@ -56,3 +56,14 @@ update items set vendor_item = true where item_id in (
 	183953,
 	177061
 );
+
+
+CREATE TABLE orders (
+	id SERIAL primary key,
+	transaction_type VARCHAR(16) not null, -- buy or sell
+	item_id INT not null,
+	qty INT not null,
+	price FLOAT not null,
+	total FLOAT not null GENERATED ALWAYS AS (qty * price * -1) STORED,
+	ts timestamp default CURRENT_TIMESTAMP
+);
