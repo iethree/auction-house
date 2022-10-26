@@ -29,9 +29,8 @@ const professionIds = {
   'Protoform Synthesis': 2819,
 };
 
-
 const recipes = await getRecipes(
-  professionIds['Enchanting'],
+  professionIds['Tailoring'],
   'Shadowlands',
 ).catch(console.error);
 

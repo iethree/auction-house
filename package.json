@@ -9,6 +9,8 @@
     "getRecipes": "node --loader ts-node/esm --no-warnings --experimental-specifier-resolution=node ./src/loadRecipes.ts",
     "getItemData": "node --loader ts-node/esm --no-warnings --experimental-specifier-resolution=node ./src/getItemData.ts",
     "loadCraftPrices": "node --loader ts-node/esm --no-warnings --experimental-specifier-resolution=node ./src/loadCraftPrices.ts",
+    "loadSpecificItems": "node --loader ts-node/esm --no-warnings --experimental-specifier-resolution=node ./src/loadSpecificItems.ts",
+
     "test": "ts-mocha",
     "lint": "eslint .",
     "lint:fix": "eslint . --fix",

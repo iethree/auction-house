@@ -33,9 +33,19 @@ export async function loadItems(limit = 10): Promise<number | null> {
     LEFT JOIN items ON items.item_id = prices.item_id
     WHERE items.name IS NULL
     LIMIT ${limit};`;
+  await client.end();
 
   const { rows: itemsMissingNames } = await client.query(noNameQuery);
   const itemIds = itemsMissingNames.map((item) => item.item_id);
+
+  return loadSpecificItems(itemIds);
+}
+
+export async function loadSpecificItems(itemIds: number[]): Promise<number | null> {
+  const { Client } = pg;
+  const client = new Client();
+  await client.connect();
+
   const itemsWithNames = await getItems(itemIds);
 
   const params = itemsWithNames.map((item) => `(
@@ -60,9 +70,10 @@ export async function loadItems(limit = 10): Promise<number | null> {
     vendor_item,
     purchase_price,
     sell_price
-  ) VALUES ${params}`;
+  ) VALUES ${params} ON CONFLICT DO NOTHING`;
 
   const insertResult = await client.query(nameInsertQuery);
+
   await client.end();
 
   return (insertResult && insertResult.rowCount) || null;

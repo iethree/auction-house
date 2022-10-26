@@ -4,7 +4,7 @@ async function wait(sec: number) {
   return new Promise((resolve) => setTimeout(resolve, sec * 1000));
 }
 
-export default async function loadAllNames() {
+export default async function loadAllItems() {
   let loadedNames: number | null | void = 1;
 
   while (loadedNames) {
@@ -17,7 +17,7 @@ export default async function loadAllNames() {
       }
     });
     if (loadedNames && loadedNames > 1)
-      console.log(`✅ ${loadedNames} names loaded`);
+      console.log(`✅ ${loadedNames} items loaded`);
     if (!loadedNames) break;
     await wait(1);
   }

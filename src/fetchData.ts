@@ -2,6 +2,7 @@ import type {
   ApiAuctionHouse, ApiAuctionItem, Item, Recipe, Ingredient
 } from '@/types/auctionHouse';
 import fetch from './fetchWithTimeout';
+import fs from 'fs';
 
 let authTokenCache = {
   access_token: '',
@@ -65,11 +66,19 @@ async function getApiData(apiPath: string): Promise<any> {
 // get prices for connected realm id
 export async function getAuctionData(realmId: number): Promise<ApiAuctionItem[] |  null> {
   const priceEndpoint = `connected-realm/${realmId}/auctions?namespace=dynamic-us`;
+  // there is a separate endpoint for all realms commodities
+  // https://us.forums.blizzard.com/en/blizzard/t/immediate-change-to-auction-apis-for-commodities-with-927/31522
+  const commodityEndpoint = 'auctions/commodities?namespace=dynamic-us';
 
-  const apiResponse = await getApiData(priceEndpoint);
+  const realmData = await getApiData(priceEndpoint);
+  const commodityData = await getApiData(commodityEndpoint);
 
-  if (apiResponse){
-    return apiResponse.auctions;
+  if (realmData || commodityData){
+    // fs.writeFileSync(`data/apiResponse_${new Date().toISOString()}.json`, JSON.stringify(apiResponse, null, 2));
+    return [
+      ...realmData.auctions,
+      ...commodityData.auctions
+    ];
   }
 
   return null;
