@@ -1,7 +1,6 @@
-import type { AuctionItem, Recipe, Item } from '@/types/auctionHouse';
+import type { AuctionItem, Recipe } from '@/types/auctionHouse';
 import pg from 'pg';
 import { getItems } from './fetchData';
-import { getProfessionTier, getRecipe } from './fetchData';
 
 export async function saveAuctionData(auctionData: AuctionItem[]): Promise<number | null> {
   const { Client } = pg;
@@ -21,9 +20,7 @@ export async function saveAuctionData(auctionData: AuctionItem[]): Promise<numbe
 
 // API throttles at 100 requests per second or 36,000 requests per hour
 export async function loadItems(limit = 10): Promise<number | null> {
-
   // TODO: refactor to separate getting and saving
-
   const { Client } = pg;
   const client = new Client();
   await client.connect();
@@ -33,9 +30,9 @@ export async function loadItems(limit = 10): Promise<number | null> {
     LEFT JOIN items ON items.item_id = prices.item_id
     WHERE items.name IS NULL
     LIMIT ${limit};`;
-  await client.end();
 
   const { rows: itemsMissingNames } = await client.query(noNameQuery);
+  await client.end();
   const itemIds = itemsMissingNames.map((item) => item.item_id);
 
   return loadSpecificItems(itemIds);
